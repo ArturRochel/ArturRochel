@@ -1,6 +1,6 @@
 function Hero() {
   return (
-    <section id="inicio" className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
+    <section id="inicio" className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 flex flex-col items-center">
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
@@ -25,7 +25,7 @@ function Hero() {
                 Artur Rochel
               </h1>
               <p className="text-lg text-gray-600 leading-relaxed">
-                Desenvolvedor Full Stack, especialista em React, FastAPI e Node.js.
+                Desenvolvedor Full Stack, com experiência em React, FastAPI e Node.js.
                 Criando soluções digitais elegantes e funcionais que transformam ideias em realidade.
               </p>
             </div>
@@ -74,7 +74,7 @@ function Hero() {
           </div>
 
           <div className="relative">
-            <div className="relative bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl overflow-hidden aspect-square">
+            <div className="w-100 h-100 relative bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl overflow-hidden aspect-square">
               <img
                 src="https://github.com/arturrochel.png "
                 alt="Profile"
@@ -86,7 +86,7 @@ function Hero() {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-4 mt-6">
+            <div className="w-100 grid grid-cols-2 gap-4 mt-6">
               <div className="bg-gray-50 p-4 rounded-lg">
                 <div className="flex items-center space-x-2 mb-2">
                   <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">

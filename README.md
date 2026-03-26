@@ -1,8 +1,9 @@
-# React + Vite
+💻 Artur Rochel  
+Software Developer  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Desenvolvedor full-stack júnior com experiência em construção de aplicações web utilizando React no front-end e FastAPI/Django no back-end. Possuo vivência no desenvolvimento de APIs REST, integração de sistemas e manutenção de aplicações focadas em performance e boas práticas.
 
-Currently, two official plugins are available:
+Tenho familiaridade com tecnologias como Redis e Docker, além de conhecimentos em arquitetura de software, buscando sempre escrever código escalável, organizado e de fácil manutenção. Atualmente, aprofundo meus estudos em backend, infraestrutura e sistemas.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🌐 Portfólio  
+🚀 https://arturrochel.vercel.app/
