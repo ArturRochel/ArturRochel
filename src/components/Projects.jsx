@@ -1,47 +1,54 @@
+import { motion } from "framer-motion";
 import { Bikecraft, Assis, SimpleFinance, Sefaz, Uniflow, Obraclick, Market } from "../assets/images";
 function Projects() {
   const projects = [
     {
       title: "Obraclick",
-      description: "Plataforma completa de e-commerce com painel administrativo, sistema de pagamentos integrado e gerenciamento de estoque.",
+      description: "O Obraclick é uma plataforma que conecta fornecedores e compradores da construção civil.",
       image: Obraclick,
       tags: ["React", "TanStack Query", "Chart.js"],
-      link: "https://obraclick.com.br/"
+      link: "https://obraclick.com.br/",
+      repository: null,
     },
     {
       title: "ChatBot e Sistema RAG",
-      description: "Aplicativo de acompanhamento fitness com gráficos de progresso, planos de treino personalizados e integração com wearables.",
+      description: "Chatbot especializado em contabilidade e finanças públicas, utilizando arquitetura RAG e LLM.",
       image: Sefaz,
       tags: ["FastAPI", "PostgreSQL", "Redis", "Docker"],
-      link: "https://www.sefaz.rn.gov.br/"
+      link: "https://www.sefaz.rn.gov.br/",
+      repository: null,
     },
-        {
+    {
       title: "Uniflow",
-      description: "Sistema de gerenciamento de conteúdo para portfolios criativos com editor visual e otimização automática de imagens.",
+      description: "Sistema web de organização acadêmica que ajuda estudantes de forma simples e centralizada.",
       image: Uniflow,
       tags: ["React", "TailwindCSS", "FastAPI", "PostgreSQL", "Docker", "Redis"],
-      link: "#"
+      link: null,
+      repository: null
     },
     {
       title: "Market Crud",
-      description: "Sistema de gerenciamento financeiro para pessoal e empresarial. Solução focada no aprendizado sobre finanças e investimentos.",
+      description: "Sistema de gerenciamento para pequenos comércios, permitindo controlar produtos, preços e estoque.",
       image: Market,
-      tags: ["Javascript", "HTML", "CSS"],
-      link: "https://arturrochel.github.io/simplefinance/"
+      tags: ["Node.js", "JWT", "Express", "React", "TailwindCSS"],
+      link: null,
+      repository: "https://github.com/ArturRochel/marketCrud"
     },
     {
       title: "Bikcraft",
       description: "Dashboard analytics para redes sociais com métricas em tempo real, agendamento de posts e relatórios automatizados.",
       image: Bikecraft,
       tags: ["Javascript", "HTML", "CSS"],
-      link: "https://arturrochel.github.io/bikcraft/"
+      link: "https://arturrochel.github.io/bikcraft/",
+      repository: "https://github.com/ArturRochel/bikcraft"
     },
     {
       title: "Assis Variedades",
-      description: "Plataforma imobiliária com busca avançada, tours virtuais em 360°, sistema de agendamento e CRM integrado.",
+      description: "Projeto front-end da Assis Variedades, desenvolvido para apresentar produtos, serviços e a história da empresa.",
       image: Assis,
-      tags: ["React", "Node.js", "Maps API", "AWS"],
-      link: "https://arturrochel.github.io/assisvariedades/"
+      tags: ["Javascript", "HTML", "CSS"],
+      link: "https://arturrochel.github.io/assisvariedades/",
+      repository: "https://arturrochel.github.io/assisvariedades/"
     }
   ];
 
@@ -63,8 +70,12 @@ function Projects() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <div
+            <motion.div
               key={index}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 group"
             >
               <div className="relative overflow-hidden aspect-video">
@@ -73,14 +84,31 @@ function Projects() {
                   alt={project.title}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                 />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-colors duration-300 flex items-center justify-center">
-                  <a
-                    href={project.link}
-                    target="blank"
+                <div className="hidden lg:flex flex-col gap-5 absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-colors duration-300 items-center justify-center">
+                  {
+                    project?.link
+                      ? <a
+                        href={project?.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 px-6 py-3 bg-white text-black rounded-lg font-medium"
+                      >
+                        Acessar
+                      </a>
+                      : null
+                  }
+
+                  {project?.repository ? <a
+                    href={project?.repository}
+                    target="_blank"
+                    rel="noreferrer"
                     className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 px-6 py-3 bg-white text-black rounded-lg font-medium"
                   >
-                    Ver Detalhes
+                    Repositório
                   </a>
+                    : null
+                  }
+
                 </div>
               </div>
 
@@ -101,8 +129,31 @@ function Projects() {
                     </span>
                   ))}
                 </div>
+
+                <div className="mt-6 flex flex-col sm:flex-row gap-3 lg:hidden">
+                  {project?.link ? (
+                    <a
+                      href={project?.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex-1 text-center py-2.5 bg-gray-900 text-white rounded-lg font-medium text-sm active:bg-gray-800 transition-colors"
+                    >
+                      Acessar
+                    </a>
+                  ) : null}
+                  {project?.repository ? (
+                    <a
+                      href={project?.repository}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex-1 text-center py-2.5 border-2 border-gray-900 text-gray-900 rounded-lg font-medium text-sm active:bg-gray-50 transition-colors"
+                    >
+                      Repositório
+                    </a>
+                  ) : null}
+                </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

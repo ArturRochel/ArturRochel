@@ -1,3 +1,4 @@
+import { Letra } from "../assets/images";
 function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -7,10 +8,11 @@ function Footer() {
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div className="md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
-                <span className="text-gray-900 font-bold text-lg">P</span>
+              <div className="w-10 h-10 bg-gray-900 rounded-lg flex items-center justify-center">
+                <img src={Letra} alt="Letra A" />
+                {/* <span className="text-gray-900 font-bold text-lg">A</span> */}
               </div>
-              <span className="text-xl font-bold">Portfolio</span>
+              <span className="text-xl font-bold">Artur Rochel</span>
             </div>
             <p className="text-gray-400 mb-4 max-w-md">
               Transformando ideias em soluções digitais inovadoras.
@@ -36,7 +38,7 @@ function Footer() {
                 aria-label="LinkedIn"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                 </svg>
               </a>
             </div>
@@ -71,9 +73,9 @@ function Footer() {
           <div>
             <h4 className="font-bold mb-4">Contato</h4>
             <ul className="space-y-2 text-gray-400">
-              <li><a href="mailto:arturrochel@gmail.com"></a></li>
-              <li>+55 (84) 98635- 5418</li>
-              <li>Natal, Brasil</li>
+              <li><a className="text-gray-400" href="mailto:arturrochel@gmail.com">Email</a></li>
+              <li><a className="text-gray-400" href="https://www.linkedin.com/in/artur-rochel-950361184/">Linkedin</a></li>
+              <li><a className="text-gray-400" href="https://github.com/ArturRochel">Github</a></li>
             </ul>
           </div>
         </div>

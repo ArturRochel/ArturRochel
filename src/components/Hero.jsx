@@ -1,10 +1,31 @@
+import { motion } from "framer-motion";
+import { Perfil } from "../assets/images";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.2 }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+};
+
 function Hero() {
   return (
-    <section id="inicio" className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+    <section id="inicio" className="flex flex-col items-center  pt-24 pb-16 px-4 sm:px-6 lg:px-8 ">
       <div className="max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
-            <div className="flex items-center space-x-3">
+        <div className="flex flex-col md:flex-row place-content-between gap-12 items-center ">
+          <motion.div 
+            className="space-y-6"
+            initial="hidden"
+            animate="visible"
+            variants={containerVariants}
+          >
+            <motion.div variants={itemVariants} className="flex items-center space-x-3">
               <span className="flex items-center space-x-2 px-3 py-1 bg-gray-100 rounded-full text-sm">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -15,10 +36,10 @@ function Hero() {
               <span className="px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-700">
                 Desenvolvedor Full Stack
               </span>
-            </div>
+            </motion.div>
 
-            <div>
-              <p className="text-sm uppercase tracking-wider text-gray-500 mb-2">
+            <motion.div variants={itemVariants}>
+              <p className="text-sm uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2 transition-colors duration-300">
                 DESENVOLVEDOR
               </p>
               <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4">
@@ -28,9 +49,9 @@ function Hero() {
                 Desenvolvedor Full Stack, com experiência em React, FastAPI e Node.js.
                 Criando soluções digitais elegantes e funcionais que transformam ideias em realidade.
               </p>
-            </div>
+            </motion.div>
 
-            <div className="space-y-3">
+            <motion.div variants={itemVariants} className="space-y-3">
               <div className="flex items-center space-x-3">
                 <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
@@ -41,7 +62,7 @@ function Hero() {
                 <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span className="text-gray-700">Especialista em React e FastAPI</span>
+                <span className="text-gray-700">Proficiência em React e FastAPI</span>
               </div>
               <div className="flex items-center space-x-3">
                 <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
@@ -49,9 +70,9 @@ function Hero() {
                 </svg>
                 <span className="text-gray-700">Projetos entregues com qualidade e pontualidade</span>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="flex flex-wrap gap-4 pt-4">
+            <motion.div variants={itemVariants} className="flex flex-wrap gap-4 pt-4">
               <a
                 href="#projetos"
                 className="px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors inline-flex items-center space-x-2"
@@ -70,15 +91,20 @@ function Hero() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </a>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
-          <div className="relative">
-            <div className="w-100 h-100 relative bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl overflow-hidden aspect-square">
+          <motion.div 
+            className="relative w-full max-w-sm md:max-w-md lg:max-w-lg mx-auto md:w-1/2"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <div className="w-full relative bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700 rounded-2xl overflow-hidden aspect-square transition-colors duration-300">
               <img
-                src="https://github.com/arturrochel.png "
-                alt="Profile"
-                className="w-full h-full object-cover"
+                src={Perfil}
+                alt="Foto de perfil Artur Rochel"
+                className="w-full h-full object-cover scale-110"
               />
               <div className="absolute bottom-6 right-6 bg-white px-4 py-3 rounded-lg shadow-lg flex items-center space-x-2">
                 <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
@@ -86,7 +112,7 @@ function Hero() {
               </div>
             </div>
 
-            <div className="w-100 grid grid-cols-2 gap-4 mt-6">
+            <div className="w-full grid grid-cols-2 gap-4 mt-6">
               <div className="bg-gray-50 p-4 rounded-lg">
                 <div className="flex items-center space-x-2 mb-2">
                   <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -107,7 +133,7 @@ function Hero() {
                 <p className="text-sm text-gray-600">Anos de Experiência</p>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
