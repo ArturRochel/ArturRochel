@@ -1,30 +1,31 @@
 import { motion } from "framer-motion";
+import { FastAPI, Docker, NodeJS, Tailwind, Redis, JavaScript, Python, PostgreSQL, React } from "../assets/images";
 
 const technologies = [
-  "React",
-  "FastAPI",
-  "Node.js",
-  "Docker",
-  "PostgreSQL",
-  "Redis",
-  "Tailwind CSS",
-  "JavaScript",
-  "Python"
+  { name: "React", logo: React, color: "#e0f7fa" },
+  { name: "FastAPI", logo: FastAPI, color: "#e0f2f1" },
+  { name: "Node.js", logo: NodeJS, color: "#e8f5e9" },
+  { name: "Docker", logo: Docker, color: "#e3f2fd" },
+  { name: "PostgreSQL", logo: PostgreSQL, color: "#e8eaf6" },
+  { name: "Redis", logo: Redis, color: "#ffebee" },
+  { name: "Tailwind CSS", logo: Tailwind, color: "#e0f7fa" },
+  { name: "JavaScript", logo: JavaScript, color: "#fffde7" },
+  { name: "Python", logo: Python, color: "#e3f2fd" }
 ];
 
 function TechStack() {
   return (
-    <section className="py-12 bg-white border-y border-gray-100 dark:border-gray-800 overflow-hidden transition-colors duration-300">
+    <section className="py-12 bg-white border-y border-gray-100 overflow-hidden transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 text-center">
-        <p className="text-sm uppercase tracking-wider text-gray-500 dark:text-gray-400 font-bold">
+        <p className="text-sm uppercase tracking-wider text-gray-500 font-bold">
           Principais Tecnologias
         </p>
       </div>
 
       <div className="relative flex overflow-hidden">
         {/* Gradient Masks for smooth fade out on edges */}
-        <div className="absolute top-0 bottom-0 left-0 w-24 bg-gradient-to-r from-white dark:from-gray-900 to-transparent z-10 pointer-events-none transition-colors duration-300"></div>
-        <div className="absolute top-0 bottom-0 right-0 w-24 bg-gradient-to-l from-white dark:from-gray-900 to-transparent z-10 pointer-events-none transition-colors duration-300"></div>
+        <div className="absolute top-0 bottom-0 left-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none transition-colors duration-300"></div>
+        <div className="absolute top-0 bottom-0 right-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none transition-colors duration-300"></div>
 
         <motion.div
           animate={{ x: ["0%", "-50%"] }}
@@ -40,13 +41,18 @@ function TechStack() {
             {technologies.map((tech, index) => (
               <div
                 key={`first-${index}`}
-                className="flex items-center space-x-3 px-6 py-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 cursor-default"
+                className="flex items-center space-x-3 px-6 py-3 border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 cursor-default"
+                style={{ backgroundColor: tech.color }}
               >
-                <div className="w-8 h-8 rounded-md bg-gray-100 dark:bg-gray-700 flex items-center justify-center transition-colors duration-300">
-                  <span className="text-sm font-black text-gray-800 dark:text-gray-200">{tech[0]}</span>
+                <div className="w-8 h-8 rounded-md bg-gray-100 flex items-center justify-center transition-colors duration-300 overflow-hidden">
+                  {tech.logo ? (
+                    <img src={tech.logo} alt={`${tech.name} logo`} className="w-full h-full object-contain p-1" />
+                  ) : (
+                    <span className="text-sm font-black text-gray-800">{tech.name[0]}</span>
+                  )}
                 </div>
-                <span className="text-lg font-bold text-gray-800 dark:text-gray-200 transition-colors duration-300">
-                  {tech}
+                <span className="text-lg font-bold text-gray-800 transition-colors duration-300 whitespace-nowrap">
+                  {tech.name}
                 </span>
               </div>
             ))}
@@ -57,13 +63,18 @@ function TechStack() {
             {technologies.map((tech, index) => (
               <div
                 key={`second-${index}`}
-                className="flex items-center space-x-3 px-6 py-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 cursor-default"
+                className="flex items-center space-x-3 px-6 py-3 border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 cursor-default"
+                style={{ backgroundColor: tech.color }}
               >
-                <div className="w-8 h-8 rounded-md bg-gray-100 dark:bg-gray-700 flex items-center justify-center transition-colors duration-300">
-                  <span className="text-sm font-black text-gray-800 dark:text-gray-200">{tech[0]}</span>
+                <div className="w-8 h-8 rounded-md bg-gray-100 flex items-center justify-center transition-colors duration-300 overflow-hidden">
+                  {tech.logo ? (
+                    <img src={tech.logo} alt={`${tech.name} logo`} className="w-full h-full object-contain p-1" />
+                  ) : (
+                    <span className="text-sm font-black text-gray-800">{tech.name[0]}</span>
+                  )}
                 </div>
-                <span className="text-lg font-bold text-gray-800 dark:text-gray-200 transition-colors duration-300">
-                  {tech}
+                <span className="text-lg font-bold text-gray-800 transition-colors duration-300 whitespace-nowrap">
+                  {tech.name}
                 </span>
               </div>
             ))}

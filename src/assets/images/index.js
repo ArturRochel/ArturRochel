@@ -7,3 +7,12 @@ export { default as Bikecraft } from './bikcraft.png'
 export { default as Market } from './market.png'
 export { default as Letra } from "./letra.png"
 export { default as Perfil } from "./perfil.JPG"
+export { default as FastAPI } from "./FastAPI.svg"
+export { default as Docker } from "./docker.png"
+export { default as NodeJS } from "./nodejs.svg"
+export { default as Tailwind } from "./tailwind.svg"
+export { default as Redis } from "./Redis.svg"
+export { default as JavaScript } from "./javascript.png"
+export { default as Python } from "./python.png"
+export { default as PostgreSQL } from "./postgresql.png"
+export { default as React } from "./react.svg"
