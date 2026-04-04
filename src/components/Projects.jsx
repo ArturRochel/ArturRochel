@@ -1,56 +1,9 @@
 import { motion } from "framer-motion";
-import { Bikecraft, Assis, SimpleFinance, Sefaz, Uniflow, Obraclick, Market } from "../assets/images";
+import { projects } from "../data/projectsData";
+import ModalProject from "./ModalProject";
+import { useState } from "react";
 function Projects() {
-  const projects = [
-    {
-      title: "Obraclick",
-      description: "O Obraclick é uma plataforma que conecta fornecedores e compradores da construção civil.",
-      image: Obraclick,
-      tags: ["React", "TanStack Query", "Chart.js"],
-      link: "https://obraclick.com.br/",
-      repository: null,
-    },
-    {
-      title: "ChatBot e Sistema RAG",
-      description: "Chatbot especializado em contabilidade e finanças públicas, utilizando arquitetura RAG e LLM.",
-      image: Sefaz,
-      tags: ["FastAPI", "PostgreSQL", "Redis", "Docker"],
-      link: "https://www.sefaz.rn.gov.br/",
-      repository: null,
-    },
-    {
-      title: "Uniflow",
-      description: "Sistema web de organização acadêmica que ajuda estudantes de forma simples e centralizada.",
-      image: Uniflow,
-      tags: ["React", "TailwindCSS", "FastAPI", "PostgreSQL", "Docker", "Redis"],
-      link: null,
-      repository: null
-    },
-    {
-      title: "Market Crud",
-      description: "Sistema de gerenciamento para pequenos comércios, permitindo controlar produtos, preços e estoque.",
-      image: Market,
-      tags: ["Node.js", "JWT", "Express", "React", "TailwindCSS"],
-      link: null,
-      repository: "https://github.com/ArturRochel/marketCrud"
-    },
-    {
-      title: "Bikcraft",
-      description: "Dashboard analytics para redes sociais com métricas em tempo real, agendamento de posts e relatórios automatizados.",
-      image: Bikecraft,
-      tags: ["Javascript", "HTML", "CSS"],
-      link: "https://arturrochel.github.io/bikcraft/",
-      repository: "https://github.com/ArturRochel/bikcraft"
-    },
-    {
-      title: "Assis Variedades",
-      description: "Projeto front-end da Assis Variedades, desenvolvido para apresentar produtos, serviços e a história da empresa.",
-      image: Assis,
-      tags: ["Javascript", "HTML", "CSS"],
-      link: "https://arturrochel.github.io/assisvariedades/",
-      repository: "https://arturrochel.github.io/assisvariedades/"
-    }
-  ];
+  const [selectedProject, setSelectedProject] = useState(null)
 
   return (
     <section id="projetos" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
@@ -98,24 +51,19 @@ function Projects() {
                       : null
                   }
 
-                  {project?.repository ? <a
-                    href={project?.repository}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 px-6 py-3 bg-white text-black rounded-lg font-medium"
-                  >
-                    Repositório
-                  </a>
-                    : null
-                  }
+
+
+                  <button onClick={() => setSelectedProject(project)} className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 px-6 py-3 bg-white text-black rounded-lg font-medium cursor-pointer">Descrição</button>
 
                 </div>
               </div>
 
               <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
-                  {project.title}
-                </h3>
+                <div className="flex flex-row">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">
+                    {project.title}
+                  </h3>
+                </div>
                 <p className="text-gray-600 mb-4 line-clamp-3">
                   {project.description}
                 </p>
@@ -141,22 +89,20 @@ function Projects() {
                       Acessar
                     </a>
                   ) : null}
-                  {project?.repository ? (
-                    <a
-                      href={project?.repository}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="flex-1 text-center py-2.5 border-2 border-gray-900 text-gray-900 rounded-lg font-medium text-sm active:bg-gray-50 transition-colors"
-                    >
-                      Repositório
-                    </a>
-                  ) : null}
+                  <button
+                    onClick={() => setSelectedProject(project)}
+                    className="flex-1 text-center py-2.5 border-2 border-gray-900 text-gray-900 rounded-lg font-medium text-sm active:bg-gray-50 transition-colors cursor-pointer"
+                  >
+                    Descrição
+                  </button>
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
       </div>
+
+      {selectedProject && (<ModalProject project={selectedProject} onClose={() => setSelectedProject(null)}/>)}
     </section>
   );
 }
